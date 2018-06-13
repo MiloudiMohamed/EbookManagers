@@ -36,7 +36,35 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @if(!Auth::Guest())
                         <li><a class="nav-link" href="{{ route('books') }}">{{ __('Book') }}</a></li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Parameters <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('organisations') }}">
+                                        Organisations
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                        Organisation Template
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                        Publishers
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                         FileType
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                        EPubType
+                                    </a>
+                                </div>
+
+                            </li>
+
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

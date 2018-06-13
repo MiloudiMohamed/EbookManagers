@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/books','BookController@index')->name('books');
-
+Route::get('/organisations','AdministratorController@index')->name('organisations');
 
 Route::get('/role',function()
 {
@@ -42,9 +42,6 @@ Route::get('/role',function()
     $user->attachRole($enduser); // parameter can be an Role object, array, or id
     $user->roles()->attach($enduser->id); // id only
 
-    $admins = User::where('username','=','administrator')->first();
-    $admins->attachRole($admin);
-    $admins->roles()->attach($admin->id);
 
     $createBook = new Permission();
     $createBook->name         = 'create-book';
