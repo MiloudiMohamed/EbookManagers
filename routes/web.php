@@ -23,6 +23,24 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/books','BookController@index')->name('books');
 Route::get('/organisations','AdministratorController@index')->name('organisations');
 
+Route::get('/epubType','AdministratorController@epubType')->name('epubType');
+Route::post('/epubType','AdministratorController@store_epubType')->name('epubType');
+Route::get('/remove_epubType/{epubtypeId}','AdministratorController@destroy_epubType')->name('removeEpubType');
+Route::get('/epubType/{epubtypeId}','AdministratorController@update_epubType')->name('epubTypeUpdate');
+
+Route::post('/epubType/{epubtypeId}','AdministratorController@update_store_epubType')->name('epubTypeUpdate');
+
+Route::get('/fileType','AdministratorController@fileType')->name('fileType');
+Route::post('/fileType','AdministratorController@store_fileType')->name('fileType');
+
+
+Route::get('/fileType/{filetypeId}','AdministratorController@update_fileType')->name('fileTypeUpdate');
+Route::post('/fileType/{filetypeId}','AdministratorController@update_store_fileType')->name('fileTypeUpdate');
+Route::get('/remove_fileType/{filetypeId}','AdministratorController@destroy_fileType')->name('removefileType');
+Route::get('/publisher','AdministratorController@publisher')->name('publisher');
+
+
+
 Route::get('/role',function()
 {
 

@@ -51,13 +51,13 @@
                                         Organisation Template
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                    <a class="dropdown-item" href="{{ route('publisher') }}">
                                         Publishers
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                    <a class="dropdown-item" href="{{ route('fileType') }}">
                                          FileType
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                    <a class="dropdown-item" href="{{ route('epubType') }}">
                                         EPubType
                                     </a>
                                 </div>

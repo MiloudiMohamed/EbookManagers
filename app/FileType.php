@@ -11,6 +11,7 @@ class FileType extends Model
      *
      * @var array
      */
+    protected $table = 'fileTypes';
     protected $fillable = [
         'name',
     ];

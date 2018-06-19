@@ -11,7 +11,20 @@ class EPUBType extends Model
      *
      * @var array
      */
+    protected $table = "epubtypes";
     protected $fillable = [
         'name','format'
     ];
+
+
+    public static function findOnModel($id)
+    {
+        if(($model = EPUBType::find($id)) !== NULL)
+        {
+            return $model;
+        }
+        else{
+
+        }
+    }
 }
