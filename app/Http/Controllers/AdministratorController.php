@@ -9,6 +9,7 @@ use Validator;
 use Crypt;
 use App\FileType;
 use App\EPUBType;
+use App\Publisher;
 class AdministratorController extends Controller
 {
     /**
@@ -158,8 +159,66 @@ class AdministratorController extends Controller
 
     public function publisher()
     {
-        return view('administrator.parameters.publisher');
+        $publishers = Publisher::get();
+        return view('administrator.parameters.publisher',['publishers'=>$publishers]);
     }
+
+    public function store_publisher(Request $request)
+    {
+        $validator = Validator::make($request->all(),
+            [
+                'publisher'=>'required',
+            ],[
+                'publisher.required'=>'Publisher required'
+            ]);
+
+        if($validator->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
+        else{
+            $newPublisher = new Publisher();
+            $newPublisher->name = $request['publisher'];
+            $newPublisher->save();
+
+            if($newPublisher)
+            {
+                return redirect()->back()->with('result','Successfully created');
+            }
+        }
+    }
+
+    public function update_publisher($publisherId)
+    {
+        $publisher = Publisher::find(Crypt::decrypt($publisherId));
+        return view('administrator.parameters.publisher_update',['publisher'=>$publisher]);
+    }
+
+    public function update_store_publisher(Request $request,$publisherId)
+    {
+        $validator = Validator::make($request->all(),
+            [
+                'publisher'=>'required',
+            ],[
+                'publisher.required'=>'Publisher required'
+            ]);
+
+        if($validator->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
+        else{
+            $newPublisher =  Publisher::find(Crypt::decrypt($publisherId));
+            $newPublisher->name = $request['publisher'];
+            $newPublisher->save();
+
+            if($newPublisher)
+            {
+                return redirect()->back()->with('result','Successfully updated');
+            }
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -235,6 +294,12 @@ class AdministratorController extends Controller
     public function destroy_fileType($id)
     {
         FileType::where('id',Crypt::decrypt($id))->delete();
+        return redirect()->back()->with('result','Deleted successfully');
+    }
+
+    public function destroy_publisher($id)
+    {
+        Publisher::where('id',Crypt::decrypt($id))->delete();
         return redirect()->back()->with('result','Deleted successfully');
     }
 

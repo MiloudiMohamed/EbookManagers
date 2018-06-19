@@ -37,7 +37,13 @@ Route::post('/fileType','AdministratorController@store_fileType')->name('fileTyp
 Route::get('/fileType/{filetypeId}','AdministratorController@update_fileType')->name('fileTypeUpdate');
 Route::post('/fileType/{filetypeId}','AdministratorController@update_store_fileType')->name('fileTypeUpdate');
 Route::get('/remove_fileType/{filetypeId}','AdministratorController@destroy_fileType')->name('removefileType');
+
+
 Route::get('/publisher','AdministratorController@publisher')->name('publisher');
+Route::get('/publisher/{publisherdId}','AdministratorController@update_publisher')->name('publisherUpdate');
+Route::post('/publisher/{publisherdId}','AdministratorController@update_store_publisher')->name('publisherUpdate');
+Route::get('/remove_publisher/{publisherId}','AdministratorController@destroy_publisher')->name('removePublisher');
+Route::post('/publisher','AdministratorController@store_publisher')->name('publisher');
 
 
 
