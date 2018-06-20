@@ -237,7 +237,55 @@ class AdministratorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $validator = Validator::make($request->all(),
+                [
+                    'name'=>'required',
+                    'postaladdress1'=>'required',
+                    'postaladdress2'=>'required',
+                    'postaladdress3'=>'required',
+                    'postalcountry'=>'required',
+                    'address1'=>'required',
+                    'address2'=>'required',
+                    'address3'=>'required',
+                    'postcode'=>'required',
+                    'country'=>'required',
+                    'telephone1'=>'required',
+                    'telephone2'=>'required',
+                    'email'=>'required',
+                    'primarycontact'=>'required',
+                    'accountscontact'=>'required',
+                    'subject'=>'required',
+                    'from'=>'required',
+                    'template'=>'required',
+                    'ACSID'=>'required',
+                    'shared_secret'=>'required',
+                ],[
+                    'name.required'=>'Name required',
+                    'postaladdress1.required'=>'Post Address 1 required',
+                    'postaladdress2.required'=>'Post Address 2 required',
+                    'postaladdress3.required'=>'Post Address 3 required',
+                    'address1.required'=>'Address 1 required',
+                    'address2.required'=>'Address 2 required',
+                    'address3.required'=>'Address 3 required',
+                    'postcode.required'>'Postcode required',
+                    'country.required'=>'Country required',
+                    'telephone1.required'=>'Telephone 1 required',
+                    'telephone2.required'=>'Telephone 2 required',
+                    'email.required'=>'Email required',
+                    'primarycontact.required'=>'Primary contact required',
+                    'accountscontact.required'=>'Account contact required',
+                    'subject.required'=>'Subject required',
+                    'from.required'=>'From required',
+                    'template.required'=>'Template required',
+                    'ACSID.required'=>'ACSID required',
+                    'shared_secret.required'=>'Shared secret required',
+                    'postalcountry.required'=>'Postal country required'
+                ]);
+
+                if($validator->fails())
+                {
+                    return redirect()->back()->withErrors($validator)->withInput();
+                }
     }
 
     /**

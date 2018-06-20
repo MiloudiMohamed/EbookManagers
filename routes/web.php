@@ -22,6 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/books','BookController@index')->name('books');
 Route::get('/organisations','AdministratorController@index')->name('organisations');
+Route::post('/organisations','AdministratorController@store')->name('organisations');
+
+
 
 Route::get('/epubType','AdministratorController@epubType')->name('epubType');
 Route::post('/epubType','AdministratorController@store_epubType')->name('epubType');
