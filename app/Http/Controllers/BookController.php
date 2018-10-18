@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Book;
 
 class BookController extends Controller
 {
@@ -13,7 +14,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('Book.index');
+        $books = Book::limit(10)->get();
+
+        return view('Book.index',['books'=>$books]);
     }
 
     /**

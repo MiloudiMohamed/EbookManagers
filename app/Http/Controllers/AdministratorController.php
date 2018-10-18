@@ -352,4 +352,8 @@ class AdministratorController extends Controller
     }
 
 
+    public function add_book()
+    {
+        return view('Book.addBook');
+    }
 }

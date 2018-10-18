@@ -15,4 +15,10 @@ class Book extends Model
         'organisation_id', 'publisher_id','title', 'creator','record_reference','doi','isbn','language','epubtype_id'
         ,'organisation_template_id','resource','description','packaged','loan','loan_max','archived','created','modified'
     ];
+
+    public function EpubType()
+    {
+        return $this->hasOne('\App\EPUBType','id','epubtype_id');
+    }
+
 }
