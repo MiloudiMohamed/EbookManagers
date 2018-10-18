@@ -32,6 +32,7 @@ class Book extends Migration
             $table->integer('loan_max')->unsigned()->nullable();
             $table->tinyInteger('archived')->unsigned()->default(0);
             $table->dateTime('created')->nullable();
+            $table->dateTime('modified')->nullable();
             $table->timestamps();
         });
     }
