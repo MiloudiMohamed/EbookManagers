@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use DemeterChain\A;
 use Faker\Provider\File;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Validator;
 use Crypt;
 use App\FileType;
 use App\EPUBType;
+use App\Organisation;
 use App\Publisher;
 class AdministratorController extends Controller
 {
@@ -354,6 +356,27 @@ class AdministratorController extends Controller
 
     public function add_book()
     {
-        return view('Book.addBook');
+        $organisations = Organisation::get();
+        $epubtypes = EPUBType::get();
+        return view('Book.addBook',['organisations'=>$organisations,'epubtypes'=>$epubtypes]);
     }
+
+    public function process_add_book(Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+                'title'=>'required',
+                'creator'=>'required',
+                'record_reference'=>'required',
+        ]);
+
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+
+
+
+    }
+
 }

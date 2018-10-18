@@ -26,6 +26,8 @@ Route::post('/organisations','AdministratorController@store')->name('organisatio
 
 
 Route::get('/add_book','AdministratorController@add_book')->name('addBook');
+Route::post('/add_book','AdministratorController@process_add_book')->name('addBook');
+
 Route::get('/epubType','AdministratorController@epubType')->name('epubType');
 Route::post('/epubType','AdministratorController@store_epubType')->name('epubType');
 Route::get('/remove_epubType/{epubtypeId}','AdministratorController@destroy_epubType')->name('removeEpubType');
