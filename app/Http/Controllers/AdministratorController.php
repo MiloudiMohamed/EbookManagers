@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Book;
 use DemeterChain\A;
 use Faker\Provider\File;
 use Illuminate\Http\Request;
@@ -354,11 +355,13 @@ class AdministratorController extends Controller
     }
 
 
+
     public function add_book()
     {
         $organisations = Organisation::get();
         $epubtypes = EPUBType::get();
-        return view('Book.addBook',['organisations'=>$organisations,'epubtypes'=>$epubtypes]);
+
+        return view('Book.addBook',['organisations'=>$organisations,'epubtypes'=>$epubtypes,'languages'=>$this->languageList()]);
     }
 
     public function process_add_book(Request $request)
@@ -374,9 +377,23 @@ class AdministratorController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-
+        $books = new Book();
+        $books->organisation_id = $request['organisation'];
+        $books->title = $request['title'];
+        $books->creator = $request['creator'];
+        $books->record_reference = $request['record_reference'];
+        $books->doi =$request['doi'];
+        $books->isbn = $request['isbn'];
+        $books->language = $request['language'];
+        $books->epubtype_id = $request['epubtype'];
+        $books->resource = NULL;
+        $books->description = $request['description'];
+        $books->created =  date("Y-m-d H:i:s");
+        $books->modified = date("Y-m-d H:i:s");
+        $books->save();
 
 
     }
+
 
 }

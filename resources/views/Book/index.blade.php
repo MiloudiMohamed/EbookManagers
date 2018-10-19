@@ -35,7 +35,7 @@
                 </td>
                 <td>{{$book->created}}</td>
                 <td>
-                    <a>Edit</a> | <a>Delete</a>
+                    <a href="{{ route('updateBook',['id'=>$book->id]) }}">Edit</a> | <a>Delete</a>
                 </td>
             </tr>
         @endforeach

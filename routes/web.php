@@ -24,7 +24,8 @@ Route::get('/books','BookController@index')->name('books');
 Route::get('/organisations','AdministratorController@index')->name('organisations');
 Route::post('/organisations','AdministratorController@store')->name('organisations');
 
-
+Route::get('/update_book/{id}','BookController@update_book')->name('updateBook');
+Route::post('/update_book/{id}','BookController@process_update_book')->name('updateBook');
 Route::get('/add_book','AdministratorController@add_book')->name('addBook');
 Route::post('/add_book','AdministratorController@process_add_book')->name('addBook');
 
