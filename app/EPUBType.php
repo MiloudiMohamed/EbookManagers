@@ -12,9 +12,7 @@ class EPUBType extends Model
      * @var array
      */
     protected $table = "epubtypes";
-    protected $fillable = [
-        'name','format'
-    ];
+    protected $guarded = [];
 
 
     public static function findOnModel($id)

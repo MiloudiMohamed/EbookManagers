@@ -11,7 +11,5 @@ class BookPrice extends Model
      *
      * @var array
      */
-    protected $fillable = [
-      'currencycode','price','taxable','taxamount','fromdate','todate','book_id'
-    ];
+    protected $guarded = [];
 }

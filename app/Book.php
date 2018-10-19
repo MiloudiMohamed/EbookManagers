@@ -11,10 +11,7 @@ class Book extends Model
  *
  * @var array
  */
-    protected $fillable = [
-        'organisation_id', 'publisher_id','title', 'creator','record_reference','doi','isbn','language','epubtype_id'
-        ,'organisation_template_id','resource','description','packaged','loan','loan_max','archived','created','modified'
-    ];
+    protected $guarded = [];
 
     public function EpubType()
     {

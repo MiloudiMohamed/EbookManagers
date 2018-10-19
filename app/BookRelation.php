@@ -11,7 +11,5 @@ class BookRelation extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'book_id','isbn'
-    ];
+    protected $guarded = [];
 }

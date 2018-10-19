@@ -11,7 +11,5 @@ class Publisher extends Model
      *
      * @var array
      */
-    protected $fillable = [
-         'name',
-    ];
+    protected $guarded = [];
 }

@@ -11,7 +11,5 @@ class EmailerBook extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'emailer_id','book_id','url','click_time','download_time','create_time'
-    ];
+    protected $guarded = [];
 }

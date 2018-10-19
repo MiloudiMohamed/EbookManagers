@@ -11,9 +11,6 @@ class BookPermission extends Model
      *
      * @var array
      */
-    protected $fillable = [
-       'type','render_type','allowed','initial','accrue','max','max_resolution','expires','expires_on'
-        ,'single_device','device_type','book_id','created','modified'
-    ];
+    protected $guarded = [];
 
 }

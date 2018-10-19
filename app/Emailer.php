@@ -11,7 +11,5 @@ class Emailer extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'first_name','last_name','email','created'
-    ];
+    protected $guarded = [];
 }

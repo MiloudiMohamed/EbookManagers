@@ -11,7 +11,5 @@ class OrganisationTemplate extends Model
      *
      * @var array
      */
-    protected $fillable = [
-       'organisation_id','name','subject','from','template'
-    ];
+    protected $guarded = [];
 }

@@ -11,7 +11,5 @@ class BookRight extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'book_id','name'
-    ];
+    protected $guarded = [];
 }

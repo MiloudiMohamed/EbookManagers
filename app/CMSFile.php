@@ -11,7 +11,5 @@ class CMSFile extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'name','mimetype','filesize','checksum','extension','book_id','filetype_id','created'
-    ];
+    protected $guarded = [];
 }
